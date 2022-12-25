@@ -1,6 +1,6 @@
 PIP = pip
 TEST_DIR = tests
-PRJ = yhttp-boilerplate
+PRJ = foo 
 HERE = $(shell readlink -f `dirname .`)
 VENVNAME = $(shell basename $(HERE) | cut -d'-' -f1)
 VENV = $(HOME)/.virtualenvs/$(VENVNAME)
