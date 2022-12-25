@@ -1,3 +1,5 @@
+- Readme about development
 - database
 - coverage
 - ci/cd
+- commit hooks
