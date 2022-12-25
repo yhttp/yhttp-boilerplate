@@ -24,5 +24,39 @@ sudo apt install \
 ### Setup development environment
 
 ```bash
+make venv
+
 source activate.sh
+
+make env
+```
+
+### Running tests
+
+```bash
+make test
+```
+
+for test coverage
+
+```bash
+make cover
+```
+
+### Linter
+
+```bash
+make lint
+```
+
+### Create source distribution
+
+```bash
+make dist
+```
+
+### Clean distribution directory
+
+```bash
+make clean
 ```
