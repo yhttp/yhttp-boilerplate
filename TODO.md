@@ -1,0 +1,3 @@
+- database
+- coverage
+- ci/cd
