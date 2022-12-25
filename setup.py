@@ -1,7 +1,7 @@
 import re
 
 from os.path import join, dirname
-from setuptools import setup, find_packages
+from setuptools import setup
 
 
 # reading package version (same way the sqlalchemy does)
@@ -16,7 +16,7 @@ dependencies = [
 
 
 setup(
-    name='yhttp-boilerplate',
+    name='foo',
     version=package_version,
     py_modules=['foo'],
     install_requires=dependencies,

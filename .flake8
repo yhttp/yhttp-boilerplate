@@ -1,4 +1,6 @@
 [flake8]
 ignore = W503
+exclude = 
+	build
 per-file-ignores =
-	foo/__init__.py: F401
+	foo.py: F401, E402

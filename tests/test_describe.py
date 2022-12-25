@@ -1,7 +1,7 @@
 from bddrest import status, response
 
 
-def test_info_info(app):
+def test_describe(app):
     import foo
 
     with app('/', 'DESCRIBE'):
