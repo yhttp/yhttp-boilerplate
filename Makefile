@@ -1,57 +1,32 @@
-PIP = pip
-TEST_DIR = tests
-PRJ = foo 
-HERE = $(shell readlink -f `dirname .`)
-VENVNAME = $(shell basename $(HERE) | cut -d'-' -f1)
-VENV = $(HOME)/.virtualenvs/$(VENVNAME)
-PYTEST_FLAGS = -v
+PKG_NAMESPACE = yhttp.boilerplate
+PKG_NAME = yhttp-boilerplate
+PYTEST_FLAGS = -vv
+PYDEPS_COMMON = \
+	'coveralls' \
+	'bddrest >= 6.1.1, < 7' \
+	'bddcli >= 2.5.1, < 3' \
+	'yhttp-dev >= 3.2.4' 
 
 
-.PHONY: test
-test:
-	pytest $(PYTEST_FLAGS) $(TEST_DIR)
+# Assert the python-makelib version
+PYTHON_MAKELIB_VERSION_REQUIRED = 1.5.5
 
 
-.PHONY: cover
-cover:
-	pytest $(PYTEST_FLAGS) --cov=$(PRJ) $(TEST_DIR)
+# Ensure the python-makelib is installed
+PYTHON_MAKELIB_PATH = /usr/local/lib/python-makelib
+ifeq ("", "$(wildcard $(PYTHON_MAKELIB_PATH))")
+  MAKELIB_URL = https://github.com/pylover/python-makelib
+  $(error python-makelib is not installed. see "$(MAKELIB_URL)")
+endif
 
 
-.PHONY: lint
-lint:
-	flake8
+# Include a proper bundle rule file.
+include $(PYTHON_MAKELIB_PATH)/venv-lint-test-webapi.mk
 
 
-.PHONY: venv
-venv:
-	python3 -m venv $(VENV)
-
-.PHONY: env
-env:
-	$(PIP) install -U pip setuptools wheel
-	$(PIP) install -r requirements-dev.txt
-	$(PIP) install -e .
+YHTTP_FLAGS = \
+	-Odebug=True
 
 
-.PHONY: sdist
-sdist:
-	python3 setup.py sdist
-
-
-.PHONY: bdist
-bdist:
-	python3 setup.py bdist_egg
-
-
-.PHONY: dist
-dist: sdist bdist
-
-
-.PHONY: clean
-clean: 
-	rm -rf ./dist
-
-
-.PHONY: deploy
-deploy:
-	./deploy.sh
+serve:
+	$(PREFIX)/bin/yhttp-boilerplate $(YHTTP_FLAGS) serve

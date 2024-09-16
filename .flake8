@@ -3,4 +3,5 @@ ignore = W503
 exclude = 
 	build
 per-file-ignores =
-	foo.py: F401, E402
+	yhttp/boilerplate/__init__.py: F401, E402
+	yhttp/boilerplate/rollup.py: F401, E402
