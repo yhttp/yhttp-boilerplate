@@ -133,3 +133,6 @@ dmypy.json
 
 # Sphinx
 documentation/_build
+
+# Project specific
+activate.sh

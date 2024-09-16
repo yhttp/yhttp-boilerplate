@@ -1,6 +1,14 @@
-from yhttp.core import json, statuscode
+from yhttp.core import json, statuscode, text
 
 from .rollup import app
+
+
+@app.route(r'/')
+@app.bodyguard(strict=True)
+@text
+@statuscode('200 Ok')
+def get(req):
+    return "Welcome to yhttp\n"
 
 
 @app.route(r'/')

@@ -5,30 +5,21 @@ A simple template for yhttp framework.
 
 ## Development
 
-
-### Install prerequisites
-
-```bash
-sudo apt install \
-  # Needs for compile Python extensions. \
-  python3-dev \
-
-  # For make virtual environment with Python. \
-  python3-venv \
-
-  # For database comunications. \ 
-  libpq-dev
-```
-
-
 ### Setup development environment
 
 ```bash
 make venv
-
-source activate.sh
-
+make activate.sh
 make env
+```
+Or to delete the current environment and make a fresh one for project.
+```
+make fresh env
+```
+
+To activate the created python virtual environment
+```
+source activate.sh
 ```
 
 ### Running tests
@@ -37,7 +28,7 @@ make env
 make test
 ```
 
-for test coverage
+for code coverage
 
 ```bash
 make cover
@@ -47,6 +38,16 @@ make cover
 
 ```bash
 make lint
+```
+
+### Serve
+```
+make serve
+```
+The default bind is localhost:8080 and you can check it by curl
+```
+curl localhost:8080
+curl -X describe localhost:8080
 ```
 
 ### Create source distribution
