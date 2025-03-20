@@ -3,7 +3,7 @@ PKG_NAME = yhttp-boilerplate
 PYTEST_FLAGS = -vv
 PYDEPS_COMMON = \
 	'coveralls' \
-	'bddrest >= 6.1.1, < 7' \
+	'bddrest >= 6.2.3, < 7' \
 	'bddcli >= 2.5.1, < 3' \
 	'yhttp-dev >= 3.2.4' 
 
