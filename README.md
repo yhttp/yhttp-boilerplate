@@ -7,11 +7,14 @@ A simple template for yhttp framework.
 
 ### Setup development environment
 
+Install [python-makelib](https://github.com/pylover/python-makelib), then:
+
 ```bash
 make venv
 make activate.sh
 make env
 ```
+
 Or to delete the current environment and make a fresh one for project.
 ```
 make fresh env
