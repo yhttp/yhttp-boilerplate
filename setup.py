@@ -11,7 +11,7 @@ with open(join(dirname(__file__), 'yhttp/boilerplate/__init__.py')) as v_file:
 
 
 dependencies = [
-    'yhttp >= 6.3, < 7'
+    'yhttp >= 6.3.1, < 7'
 ]
 
 
